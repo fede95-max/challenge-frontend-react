@@ -1,0 +1,15 @@
+.button {
+  height: auto;
+  width: auto;
+  color: red;
+}
+.input {
+  height: 2rem;
+  width: auto;
+}
+.text {
+  width: 100%;
+}
+.button {
+  border: none;
+}
