@@ -1,6 +1,6 @@
 import { Rating } from "@material-ui/core";
-import convertToNumber from "../../constants/ConvertToNumber";
-import ShowWithStyleInfo from "./ShowWithStyleInfo";
+import convertToNumber from "../../../utils/ConvertToNumber";
+import ShowWithStyleInfo from "../ShowWithStyleInfo";
 
 const ShowInfoDataHero = ({ hero }) => {
   const fullDataHero = AddDataHero(hero);

@@ -1,4 +1,4 @@
-import ShowWithStyleInfo from "./ShowWithStyleInfo";
+import ShowWithStyleInfo from "../ShowWithStyleInfo";
 const FullDetailsHeroTeam = ({ hero }) => {
   return (
     <div className="ml-2">

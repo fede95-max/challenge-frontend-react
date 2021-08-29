@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
-import { Validation } from "./../../services/authServices";
+import { Validation } from "../../hooks/authServices";
 
 import "./styles.css";
 const initialValues = {
