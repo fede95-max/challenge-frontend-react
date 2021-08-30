@@ -11,7 +11,7 @@ import "./styles.css";
 const SearchSuperHero = () => {
   const [search, setSearch] = useState(null);
   const [teamHeros, setTeamHero] = useState([]);
-  const { data: heros, isLoading } = useSearchSuperHeroServices(search);
+  const { data: heros, error } = useSearchSuperHeroServices(search);
   useEffect(() => {
     ReadStorage("Team")
       .then((result) => setTeamHero(JSON.parse(result) || []))
@@ -26,10 +26,6 @@ const SearchSuperHero = () => {
       setSearch(values.name);
     },
   });
-
-  if (isLoading) {
-    return <div />;
-  }
 
   const existHeroTeam = (id) => {
     return teamHeros.find((hero) => hero.id === id);
@@ -56,7 +52,13 @@ const SearchSuperHero = () => {
           {teamHeros.length > 0 &&
             teamHeros.map((item) => (
               <div className="m-2">
-                <Button onClick={() => AddHeroTeam(item)}>
+                <Button
+                  style={{
+                    backgroundColor:
+                      item.biography.alignment === "bad" ? "red" : "blue",
+                  }}
+                  onClick={() => AddHeroTeam(item)}
+                >
                   <div className={`card card-xs`} style={{ color: "red" }}>
                     <div className=" d-flex flex-column">
                       <ErrorImage url={item.image.url} style={{ height: 80 }} />
@@ -82,10 +84,19 @@ const SearchSuperHero = () => {
           <Button type="submit">Buscar</Button>
         </div>
       </form>
+      {!!search && !!error && (
+        <LottieIcon
+          alignment={"NoResults"}
+          width={400}
+          height={350}
+          loop={true}
+          play={true}
+        />
+      )}
       <div className="mt-5 d-flex flex-wrap">
         <FlatList
           list={heros}
-          renderWhenEmpty={() => <div></div>}
+          renderWhenEmpty={() => <div />}
           renderItem={(item) => (
             <Button
               key={item.id}

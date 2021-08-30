@@ -1,17 +1,24 @@
-import { fetchContent } from "../utils/fetchContent";
 import { useQuery } from "react-query";
+import { fetchContent } from "../utils/fetchContent";
 
 export const useSearchSuperHeroServices = (heroName) => {
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, error } = useQuery(
     ["searchSuperHero", heroName],
+
     async () => {
-      const { results } = await fetchContent("/search/" + heroName);
-      return results;
+      if (heroName === "") {
+        return {};
+      }
+
+      const results = await fetchContent("/search/" + heroName);
+
+      return results.results;
     }
   );
 
   return {
     data,
     isLoading,
+    error,
   };
 };

@@ -35,6 +35,7 @@ const Home = () => {
 
   return (
     <>
+
       <h2 className="d-flex justify-content-center">Equipo</h2>
       {!!equip && equip.length > 0 && <ShowInfoDataHero hero={equip} />}
       <div className="container d-flex flex-wrap" style={{ maxWidth: "80%" }}>
@@ -44,11 +45,11 @@ const Home = () => {
               <div className="card m-2" style={{ minWidth: 300 }}>
                 <div className="d-flex flex-row justify-content-between mb-2">
                   <LottieIcon alignment={item.biography.alignment} />
-                  <div className="">
+                  <h5>{item.name}</h5>
+                  <div>
                     <Trash
                       onClick={() => {
                         setProps({
-                          title: "",
                           type: "delete",
                           item,
                           description: `Quieres eliminar a
@@ -80,9 +81,6 @@ const Home = () => {
                     <div className="d-flex justify-content-beetween">
                       <div className=" d-flex flex-column">
                         <ErrorImage url={item.image.url} />
-                        <div className="mt-2" title="Agregar Personaje">
-                          {item.name}
-                        </div>
                       </div>
                       <ShowPowerstatsHero {...item.powerstats} />
                     </div>
@@ -92,14 +90,21 @@ const Home = () => {
             </>
           ))
         ) : (
-          <div className="d-flex justify-content-center mt-4">
+          <>
             <h5>
-              Aun no tienes un equipo, Armalo
+              Aun no tienes un equipo, Crealo
               <a href="/SearchSuperHero">
                 <b> Aqui </b>
               </a>
             </h5>
-          </div>
+            <LottieIcon
+              alignment={"HeroHome"}
+              width={400}
+              height={300}
+              loop={true}
+              play={true}
+            />
+          </>
         )}
       </div>
       <Dialog

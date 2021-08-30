@@ -32,7 +32,7 @@ body {
   border: none;
   font-size: 1.3rem;
   padding-left: 1.5rem;
-  padding-bottom: 1rem;
+
   box-shadow: inset 0px -3px 0px 0px rgba(187, 187, 187, 0.2);
   transition: box-shadow 0.2s ease-in;
 }
@@ -46,17 +46,12 @@ body {
 .rowbutton {
   border-radius: 25px;
   width: 70%;
-
   height: 40px;
   font-size: 1.3rem;
   color: white;
   font-weight: 700;
   background: rgb(34, 193, 195);
-  background: linear-gradient(
-    90deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background: linear-gradient(360deg, #00b09b 0%, #96c93d 100%);
   border: 0px;
 }
 .row button:hover {

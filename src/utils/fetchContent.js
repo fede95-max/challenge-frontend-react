@@ -33,9 +33,12 @@ export const fetchContent = async (url, config = {}) => {
     const promise = httpClient.request(request);
     promise.cancel = () => source.cancel("cancelled");
     const response = await promise;
+
+    if (response?.data?.error) {
+      throw new Error(response.data.error);
+    }
     return camelcaseKeys(response?.data, { deep: true });
   } catch (error) {
-    console.warn(url, error);
     throw error;
   }
 };

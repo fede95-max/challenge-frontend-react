@@ -4,7 +4,18 @@ import ShowWithStyleInfo from "../ShowWithStyleInfo";
 
 const ShowInfoDataHero = ({ hero }) => {
   const fullDataHero = AddDataHero(hero);
-
+  const ShowInfoWithStyle = ({ label, value }) => {
+    return (
+      <div className="d-flex flex-row ">
+        <ShowWithStyleInfo label={label} value={value} />
+        <Rating
+          value={value / 20 / hero.length}
+          size={"small"}
+          precision={0.2}
+        />
+      </div>
+    );
+  };
   return (
     <>
       <h3 className="d-flex justify-content-center">
@@ -23,65 +34,23 @@ const ShowInfoDataHero = ({ hero }) => {
         }}
       >
         <div className="d-flex flex-wrap ">
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo label="Combate" value={fullDataHero.combat} />
-            <Rating
-              value={fullDataHero.combat / 20 / hero.length}
-              size={"small"}
-              precision={0.2}
-            />
-          </div>
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo
-              label="Resistencia"
-              value={fullDataHero.durability}
-            />
-            <Rating
-              value={fullDataHero.durability / 20 / hero.length}
-              size={"small"}
-              precision={0.5}
-            />
-          </div>
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo
-              label="Inteligencia"
-              value={fullDataHero.intelligence}
-            />
-            <Rating
-              value={fullDataHero.intelligence / 20 / hero.length}
-              size={"small"}
-              precision={0.5}
-            />
-          </div>
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo label="Poder" value={fullDataHero.power} />
-            <Rating
-              value={fullDataHero.power / 20 / hero.length}
-              size={"small"}
-              precision={0.5}
-            />
-          </div>
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo label="Velocidad" value={fullDataHero.speed} />
-            <Rating
-              value={fullDataHero.speed / 20 / hero.length}
-              size={"small"}
-              precision={0.5}
-            />
-          </div>
-          <div className="d-flex flex-row align-items-center">
-            <ShowWithStyleInfo label="Fuerza" value={fullDataHero.strength} />
-            <Rating
-              value={fullDataHero.strength / 20 / hero.length}
-              size={"small"}
-              precision={0.5}
-            />
-          </div>
-          <ShowWithStyleInfo label="Peso" value={fullDataHero.average.weight} />
+          <ShowInfoWithStyle label={"Combate"} value={fullDataHero.combat} />
+          <ShowInfoWithStyle
+            label={"Resistencia"}
+            value={fullDataHero.durability}
+          />
+          <ShowInfoWithStyle
+            label={"Inteligencia"}
+            value={fullDataHero.intelligence}
+          />
+          <ShowInfoWithStyle label={"Poder"} value={fullDataHero.power} />
+          <ShowInfoWithStyle label={"Velocidad"} value={fullDataHero.speed} />
+          <ShowInfoWithStyle label={"Fuerza"} value={fullDataHero.strength} />
           <ShowWithStyleInfo
             label="Altura"
-            value={fullDataHero.average.height}
+            value={fullDataHero.average.weight}
           />
+          <ShowWithStyleInfo label="Peso" value={fullDataHero.average.height} />
         </div>
       </div>
     </>

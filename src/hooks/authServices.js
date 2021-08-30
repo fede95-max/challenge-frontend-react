@@ -9,7 +9,6 @@ export const Validation = ({ email, password }) => {
     email,
     password,
   };
-
   useEffect(() => {
     if (email && password && !token) {
       fetchContent("http://challenge-react.alkemy.org/", {

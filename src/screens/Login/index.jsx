@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
+import { Button } from "react-bootstrap";
 import { Validation } from "../../hooks/authServices";
 
 import "./styles.css";
@@ -39,10 +40,10 @@ const Login = ({ setUser }) => {
           )}
           <div className="row">
             <label className="row-label" htmlFor="email">
-              Email
+              Correo
             </label>
             <input
-              className="row-input"
+              className="row-input form-control "
               id="email"
               name="email"
               type="text"
@@ -53,10 +54,10 @@ const Login = ({ setUser }) => {
           </div>
           <div className="row">
             <label className="row-label" htmlFor="password">
-              Password
+              Contraseña
             </label>
             <input
-              className="row-input"
+              className="row-input form-control "
               id="password"
               name="password"
               type="password"
@@ -66,9 +67,9 @@ const Login = ({ setUser }) => {
             />
           </div>
           <div id="button" className="row">
-            <button className="rowbutton" type="submit">
+            <Button className="rowbutton" type="submit">
               Submit
-            </button>
+            </Button>
           </div>
         </div>
       </form>
