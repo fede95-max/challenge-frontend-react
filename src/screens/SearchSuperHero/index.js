@@ -93,10 +93,27 @@ const SearchSuperHero = () => {
           play={true}
         />
       )}
-      <div className="mt-5 d-flex flex-wrap">
+      <div
+        className={
+          heros ? "mt-4 d-flex flex-wrap" : "d-flex justify-content-center"
+        }
+      >
         <FlatList
           list={heros}
-          renderWhenEmpty={() => <div />}
+          renderWhenEmpty={() => {
+            if (!search) {
+              return (
+                <LottieIcon
+                  alignment={"Searcher"}
+                  width={200}
+                  height={200}
+                  loop={true}
+                  play={true}
+                />
+              );
+            }
+            return <div></div>;
+          }}
           renderItem={(item) => (
             <Button
               key={item.id}

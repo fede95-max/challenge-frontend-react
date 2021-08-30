@@ -3,6 +3,7 @@ import SuperHeroHome from "../../Lotties/SuperHeroHome.json";
 import SuperHero from "../../Lotties/SuperHero.json";
 import Evil from "../../Lotties/Evil.json";
 import NoResults from "../../Lotties/NoResults.json";
+import Searcher from "../../Lotties/Searcher.json";
 
 const Luttie = ({
   alignment,
@@ -21,6 +22,8 @@ const Luttie = ({
         ? SuperHeroHome
         : alignment === "NoResults"
         ? NoResults
+        : alignment === "Searcher"
+        ? Searcher
         : Evil,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
